@@ -1,7 +1,7 @@
 export default () => {
     return (
         <>
-            <h1>Praca</h1>
+            Not found
         </>
     );
 }
