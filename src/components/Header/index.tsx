@@ -22,17 +22,13 @@ export default () => {
                         <li>
                             <Link href="/saved">
                                 <TbBookmark/>
-                                <span>
-                                    Saved Jobs
-                                </span>
+                                <span>Saved Jobs</span>
                             </Link>
                         </li>
                         <li>
-                            <Link href="/data">
+                            <Link href="https://jobicy.com/jobs-rss-feed" target="_blank" rel="noopener noreferrer">
                                 <TbDatabase/>
-                                <span>
-                                    Data
-                                </span>
+                                <span>Data</span>
                             </Link>
                         </li>
                     </ul>
