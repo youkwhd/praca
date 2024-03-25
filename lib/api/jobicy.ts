@@ -30,7 +30,7 @@ export const getRemoteJobs = async (industry?: Industry, count?: number, geo?: s
     if (tag) urlQueries.append("tag", tag);
 
     const response: Response = await fetch(`${url.toString()}?${urlQueries.toString()}`);
-    return await response.json();
+    return response.json();
 }
 
 export const parseJobType = (jobType: string) => {
