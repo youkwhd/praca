@@ -43,7 +43,7 @@ export const parseJobType = (jobType: string) => {
 export const parseJobGeo = (jobGeo: string): string[] => {
     return jobGeo
             .split(", ")
-            .filter((geo: string) => !(["APAC", "EMEA", "LATAM"].includes(geo)))
+            .filter((geo: string) => !(["APAC", "EMEA", "LATAM"].includes(geo)));
 }
 
 export default { getRemoteJobs, parseJobType, parseJobGeo };
