@@ -1,6 +1,6 @@
 import Link from "next/link";
 import SearchBar from "@/components/SearchBar";
-import { TbDatabase } from "react-icons/tb";
+import { TbDatabase, TbBookmark } from "react-icons/tb";
 
 export default () => {
     return (
@@ -17,8 +17,16 @@ export default () => {
                         </SearchBar>
                     </div>
                 </div>
-                <div className="flex items-center justify-center mx-2">
-                    <ul className="[&>li>a]:flex [&>li>a]:items-center [&>li>a]:justify-center [&>li>a>span]:mx-1">
+                <div className="mx-2">
+                    <ul className="flex flex-row *:ml-3 [&>li>a]:flex [&>li>a]:items-center [&>li>a]:justify-center [&>li>a>span]:mx-1">
+                        <li>
+                            <Link href="/saved">
+                                <TbBookmark/>
+                                <span>
+                                    Saved Jobs
+                                </span>
+                            </Link>
+                        </li>
                         <li>
                             <Link href="/data">
                                 <TbDatabase/>
