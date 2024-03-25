@@ -26,6 +26,12 @@ body {
   /*   rgb(var(--background-start-rgb)); */
     background-color: #1E1E1E;
     color: #FFFFFF;
+
+}
+
+input {
+    background-color: #1E1E1E;
+    color: #FFFFFF;
 }
 
 @layer utilities {

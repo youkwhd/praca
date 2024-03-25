@@ -15,7 +15,10 @@ export default ({ children }: Readonly<{ children: React.ReactNode }>) => {
         <html lang="en">
             <body className={inter.className}>
                 <Header />
-                {children}
+                {/* child wrapper */}
+                <div className="p-5 max-w-screen-2xl m-auto">
+                    {children}
+                </div>
             </body>
         </html>
     );

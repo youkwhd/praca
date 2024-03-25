@@ -5,7 +5,7 @@ export default async () => {
     const jobResult = await getRemoteJobs("web-app-design");
 
     return (
-        <main className="grid grid-cols-mmax-340 gap-4 p-5">
+        <main className="grid grid-cols-mmax-340 gap-4">
             {jobResult.jobs.map((job: any) => {
                 return (
                     <div key={job.id} className="p-3 bg-praca-grey flex align-center rounded-md border border-praca-grey"
