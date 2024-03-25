@@ -1,5 +1,4 @@
-const PROTOCOL = "https://"
-const JOBICY_BASE_API_URL = `${PROTOCOL}jobicy.com/api/v2`;
+const JOBICY_BASE_API_URL = `https://jobicy.com/api/v2`;
 
 export type Industry =
     "business"
