@@ -33,11 +33,17 @@ export const getRemoteJobs = async (industry?: Industry, count?: number, geo?: s
     return await response.json();
 }
 
-export const convertJobTypeToReadable = (jobType: string) => {
+export const parseJobType = (jobType: string) => {
     return jobType
             .split("-")
             .map((type: string) => `${type[0].toUpperCase()}${type.slice(1)}`)
-            .join(" ")
+            .join(" ");
 }
 
-export default { getRemoteJobs, convertJobTypeToReadable };
+export const parseJobGeo = (jobGeo: string): string[] => {
+    return jobGeo
+            .split(", ")
+            .filter((geo: string) => !(["APAC", "EMEA", "LATAM"].includes(geo)))
+}
+
+export default { getRemoteJobs, parseJobType, parseJobGeo };
