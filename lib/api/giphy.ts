@@ -22,7 +22,7 @@ export const getNotFoundGIF = async (): Promise<string> => {
     const url = new URL(`${BASE_URL}/v1/gifs/search`);
     const queries = new URLSearchParams();
 
-    const keywords = ["Where am I", "I am blind", "Am I supposed to be here"];
+    const keywords = ["Where am I", "I am blind", "Am I supposed to be here", "We're lost", "I don't know", "HUH", "Ben 10 lost his way", "This is surely fine", "404 Where is this", "Cartoon funny"];
 
     queries.append("api_key", API_KEY);
     queries.append("q", keywords[Math.floor(Math.random() * keywords.length)]);
