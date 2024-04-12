@@ -7,19 +7,19 @@ const ICON_SIZE: string = "1em";
 export default () => {
     return (
         <header className="border-b border-praca-grey">
-            <div className="flex items-center justify-between max-w-screen-2xl mx-auto my-3.5 px-4">
-                <div className="flex items-center justify-center mx-2">
+            <div className="flex items-center max-w-screen-2xl mx-auto my-3.5 px-4">
+                <div className="flex items-center w-8/12 mx-2">
                     <h1 className="font-extrabold text-lg">
                         <Link href="/">
                             Praca
                         </Link>
                     </h1>
-                    <div className="flex items-center justify-center mx-7">
+                    <div className="flex items-center justify-center ml-7 w-full">
                         <SearchBar>
                         </SearchBar>
                     </div>
                 </div>
-                <div className="mx-2">
+                <div className="flex justify-end w-4/12 mx-2">
                     <ul className="flex flex-row *:ml-3 [&>li>a]:flex [&>li>a]:items-center [&>li>a]:justify-center [&>li>a>span]:mx-1">
                         <li>
                             <Link href="/saved">
