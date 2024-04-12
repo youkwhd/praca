@@ -46,7 +46,9 @@ export default async () => {
                                 <p className="text-sm">{job.companyName}</p>
                             </div>
                             <div>
-                                <p className="text-xs">{parseJobType(job.jobType[0])}</p>
+                                <p className="text-xs mt-0.5">
+                                    {parseJobType(job.jobType[0])}
+                                </p>
                                 {/*
                                 <ul>
                                     {parseJobGeo(job.jobGeo).map((geo: string) => {
