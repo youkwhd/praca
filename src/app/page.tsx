@@ -16,6 +16,16 @@ export default async () => {
                 let jobTitle = job.jobTitle;
                 if (jobTitle.length > JOB_TITLE_MAX_LENGTH) jobTitle = jobTitle.slice(0, JOB_TITLE_MAX_LENGTH).trim().concat(JOB_TITLE_SLICER);
 
+                // TODO: rename this variable
+                const jobPubDate: Date = new Date(job.pubDate);
+
+                let jobPubDateDay = `${jobPubDate.getDate()}th`;
+                if (jobPubDate.getDate() === 1) jobPubDateDay = "1st";
+                if (jobPubDate.getDate() === 2) jobPubDateDay = "2nd";
+
+                // TODO: rename this variable
+                const jobPubDateMonth = jobPubDate.toLocaleString("en-US", { month: "long" });
+
                 return (
                     <div key={job.id} className="p-3 bg-praca-grey flex align-center rounded-md border border-praca-grey"
                                       // style={{ width: 450 }}
@@ -46,7 +56,7 @@ export default async () => {
                                     })}
                                 </ul>
                                 */}
-                                <p className="text-xs">{job.pubDate}</p>
+                                <p className="text-xs">{`${jobPubDateMonth} ${jobPubDateDay}, ${jobPubDate.getFullYear()}`}</p>
                             </div>
                         </div>
                     </div>
