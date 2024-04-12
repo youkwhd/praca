@@ -9,6 +9,13 @@ export default async () => {
     return (
         <main className="grid grid-cols-mmax-340 gap-4">
             {jobResult.jobs.map((job: any) => {
+                // TODO: rename this variable
+                const JOB_TITLE_SLICER = "...";
+                const JOB_TITLE_MAX_LENGTH = 40 - JOB_TITLE_SLICER.length;
+
+                let jobTitle = job.jobTitle;
+                if (jobTitle.length > JOB_TITLE_MAX_LENGTH) jobTitle = jobTitle.slice(0, JOB_TITLE_MAX_LENGTH).trim().concat(JOB_TITLE_SLICER);
+
                 return (
                     <div key={job.id} className="p-3 bg-praca-grey flex align-center rounded-md border border-praca-grey"
                                       // style={{ width: 450 }}
@@ -25,7 +32,7 @@ export default async () => {
                         </div>
                         <div className="mx-2">
                             <div>
-                                <p className="font-semibold">{job.jobTitle}</p>
+                                <p className="font-semibold">{jobTitle}</p>
                                 <p className="text-sm">{job.companyName}</p>
                             </div>
                             <div>
