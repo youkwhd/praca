@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { getRemoteJobs, parseJobType, parseJobGeo } from "@/api/jobicy";
 
+const COMPANY_LOGO_SIZE: number = 40;
+
 export default async () => {
     const jobResult = await getRemoteJobs("web-app-design");
 
@@ -14,10 +16,11 @@ export default async () => {
                         <div>
                             <div className="m-1.5 flex align-center justify-center">
                                 <img className="rounded"
+                                    style={{minWidth: COMPANY_LOGO_SIZE, minHeight: COMPANY_LOGO_SIZE}}
                                     src={job.companyLogo}
                                     alt="Company Logo"
-                                    width={40}
-                                    height={40} />
+                                    width={COMPANY_LOGO_SIZE}
+                                    height={COMPANY_LOGO_SIZE} />
                             </div>
                         </div>
                         <div className="mx-2">
