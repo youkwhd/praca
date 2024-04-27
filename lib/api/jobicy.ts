@@ -1,23 +1,7 @@
 const JOBICY_BASE_API_URL = `https://jobicy.com/api/v2`;
 
-export type Industry =
-    "business"
-    | "copywriting"
-    | "supporting"
-    | "data-science"
-    | "design-multimedia"
-    | "admin"
-    | "accounting-finance"
-    | "hr"
-    | "marketing"
-    | "management"
-    | "dev"
-    | "seller"
-    | "seo"
-    | "smm"
-    | "engineering"
-    | "technical-support"
-    | "web-app-design";
+export const INDUSTRIES = ["business", "copywriting", "supporting", "data-science", "design-multimedia", "admin", "accounting-finance", "hr", "marketing", "management", "dev", "seller", "seo", "smm", "engineering", "technical-support", "web-app-design"];
+export type Industry = typeof INDUSTRIES[number];
 
 export const getRemoteJobs = async (industry?: Industry, count?: number, geo?: string, tag?: string): Promise<any> => {
     const url = new URL(`${JOBICY_BASE_API_URL}/remote-jobs`);
