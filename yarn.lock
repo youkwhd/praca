@@ -506,6 +506,11 @@ jiti@^1.19.1:
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
   integrity sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
 
+kontinu@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/kontinu/-/kontinu-0.1.0.tgz#39dbef130dbae1f724753512b691e88a8a35e3b0"
+  integrity sha512-/UYROChWh/fjdGW1XLb+b5YE7fsAoHADuWBUYBVAWErjlhoshYI1F7+qB+Wgt/YX/L+IYvYDdPpNOqZmS1pthw==
+
 lilconfig@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/lilconfig/-/lilconfig-2.1.0.tgz#78e23ac89ebb7e1bfbf25b18043de756548e7f52"

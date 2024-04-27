@@ -1,14 +1,45 @@
-import Image from "next/image";
-import { getRemoteJobs, parseJobType, parseJobGeo } from "@/api/jobicy";
+"use client";
+
+import { useState, useRef, useEffect } from "react";
+import { getRemoteJobs, parseJobType, parseJobGeo, INDUSTRIES } from "@/api/jobicy";
+import kontinu from "kontinu";
 
 const COMPANY_LOGO_SIZE: number = 40;
 
-export default async () => {
-    const jobResult = await getRemoteJobs("web-app-design");
+export default () => {
+    const lastJobCardRef = useRef(null);
+    const [currentIndustryIdx, setCurrentIndustryIdx] = useState(15);
+    const [jobs, setJobs] = useState([]);
+
+    const fetchMoreJobs = async () => {
+        if (currentIndustryIdx >= INDUSTRIES.length)
+            return;
+
+        const __jobs = await getRemoteJobs(INDUSTRIES[currentIndustryIdx]);
+        setJobs((prev) => [...prev, ...__jobs.jobs] as Array<never>);
+        setCurrentIndustryIdx((prev: number) => prev + 1);
+    };
+
+    useEffect(() => {
+        (async () => {
+            await fetchMoreJobs();
+        })();
+    }, []);
+
+    useEffect(() => {
+        if (!lastJobCardRef.current)
+            return;
+
+        kontinu.observe(lastJobCardRef.current, () => {
+            (async () => {
+                await fetchMoreJobs();
+            })();
+        });
+    }, [lastJobCardRef.current, jobs]);
 
     return (
         <main className="grid grid-cols-mmax-340 gap-4">
-            {jobResult.jobs.map((job: any) => {
+            {jobs.map((job: any, idx: number) => {
                 // TODO: rename this variable
                 const JOB_TITLE_SLICER = "...";
                 const JOB_TITLE_MAX_LENGTH = 40 - JOB_TITLE_SLICER.length;
@@ -27,15 +58,15 @@ export default async () => {
                 const jobPubDateMonth = jobPubDate.toLocaleString("en-US", { month: "long" });
 
                 return (
-                    <div key={job.id} className="p-3 bg-praca-grey flex align-center rounded-md border border-praca-grey"
-                                      // style={{ width: 450 }}
-                                      >
+                    <div key={`${job.id}-${idx}`}
+                        className="p-3 bg-praca-grey flex align-center rounded-md border border-praca-grey"
+                        ref={idx === jobs.length - 1 ? lastJobCardRef : null}>
                         <div>
                             <div className="m-1.5 flex align-center justify-center">
                                 <img className="rounded"
                                     style={{minWidth: COMPANY_LOGO_SIZE, minHeight: COMPANY_LOGO_SIZE}}
                                     src={job.companyLogo}
-                                    alt="Company Logo"
+                                    alt=""
                                     width={COMPANY_LOGO_SIZE}
                                     height={COMPANY_LOGO_SIZE} />
                             </div>
